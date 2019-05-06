@@ -4,12 +4,13 @@ from .import models
 from django.http import HttpResponse
 
 
-
+# Returns a dictionary representing the template context. The keyword arguments provided will make up the returned context.
 class Index(generic.TemplateView):
 
     template_name = 'catalog/index.html'
 
     def get_context_data(self, **kwargs):
+    # This is frequently used to pass all kinds of data to a template: the user that is logged in, forms, querysets, etc. The template can then render these components accordingly.
         context=super().get_context_data(**kwargs)
         context['num_books']=models.Book.objects.all().count()
         context['num_instances']=models.BookInstance.objects.all().count()
@@ -27,6 +28,9 @@ class BookDetailView(generic.DetailView):
 class AuthorListView(generic.ListView):
     model=models.Author
     template_name='catalog/author_list.html'
+class loginview(generic.DetailView):
+
+
 
 
 

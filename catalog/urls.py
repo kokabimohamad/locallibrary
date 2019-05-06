@@ -13,10 +13,6 @@ urlpatterns = [
     url(r'^books/$', views.BookListView.as_view(), name='books'),
     url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
     url(r'^authors/$' , views.AuthorListView.as_view(), name='authors'),
-    # url(r'^accounts/login$', include('django.contrib.auth.views.login'))
+    # url(r'^accounts/login', views.login.as_view(), name='login'),
 
-]
-
-urlpatterns += [
-    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]

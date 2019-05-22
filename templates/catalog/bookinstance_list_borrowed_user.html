@@ -8,7 +8,10 @@
 
       {% for bookinst in bookinstance_list %}
       <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> ({{ bookinst.due_back }})
+        <a href="{{ bookinst.book.get_absolute_url }}">{{bookinst.book.title}}</a> ({{ bookinst.due_back }})
+        <!-- "{{ bookinst.book.get_absolute_url }}" -->
+        <!-- "{% url 'catalog:book-detail' bookinst.book.pk %}" -->
+        <!-- both are true -->
       </li>
       {% endfor %}
     </ul>
